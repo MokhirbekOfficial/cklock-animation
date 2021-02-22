@@ -1,0 +1,116 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.clock {
+  margin: 10px auto;
+  position: relative;
+  background-image: url(../img/clock.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 35vw;
+  height: 35vw;
+}
+
+.clock:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  height: 5%;
+  z-index: 3;
+  background: #534741;
+  border-radius: 50%;
+}
+
+.min, .hours, .sec {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+}
+
+.hours-pointer {
+  background: #FFBE32;
+  height: 25%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border: 0.1vw solid red;
+}
+
+.min-pointer {
+  background: #F4CA16;
+  height: 33%;
+  left: 49%;
+  position: absolute;
+  top: 22%;
+  transform-origin: 50% 100%;
+  width: 2%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border: 0.1vw solid red;
+}
+
+.sec-pointer {
+  background: red;
+  height: 38%;
+  left: 49.5%;
+  position: absolute;
+  top: 18%;
+  transform-origin: 50% 80%;
+  width: 1%;
+  z-index: 8;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.hours {
+  animation-name: rotate;
+  animation-duration: 43200s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.min {
+  animation-name: rotate;
+  animation-duration: 3600s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sec {
+  animation: rotate 60s infinite steps(60);
+}
+
+@media only screen and (max-width: 400px) {
+  .clock {
+    width: 65vw;
+    height: 65vw;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
